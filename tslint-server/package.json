@@ -1,11 +1,13 @@
 {
-  "name": "tslint-server",
+  "name": "@keplersj/tslint-server",
   "version": "0.2.0",
   "description": "TSLint Linter Server",
   "engines": {
     "node": "*"
   },
-  "private": true,
+  "bin": {
+    "tslint-server": "./out/server.js"
+  },
   "dependencies": {
     "minimatch": "^3.0.0",
     "vscode-languageserver": "^3.4.0",
@@ -22,8 +24,10 @@
     "typescript": "^2.0.3"
   },
   "scripts": {
-    "compile": "installServerIntoExtension ../tslint ./package.json ./src/tsconfig.json && tsc -p ./src",
-    "watch": "installServerIntoExtension ../tslint ./package.json ./src/tsconfig.json && tsc --watch -p ./src",
+    "prepare": "tsc -p ./src --outDir ./out",
+    "compile": "tsc -p ./src --outDir ./out",
+    "compileIntoExtension": "installServerIntoExtension ../tslint ./package.json ./src/tsconfig.json && tsc -p ./src",
+    "watchIntoExtension": "installServerIntoExtension ../tslint ./package.json ./src/tsconfig.json && tsc --watch -p ./src",
     "pretest": "tsc -p ./test",
     "test": "mocha test/out/test"
   }
