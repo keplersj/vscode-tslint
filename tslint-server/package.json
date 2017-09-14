@@ -1,6 +1,6 @@
 {
   "name": "@keplersj/tslint-server",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "TSLint Linter Server",
   "engines": {
     "node": "*"
@@ -8,10 +8,13 @@
   "bin": {
     "tslint-server": "./out/server.js"
   },
+  "files": [
+    "out/"
+  ],
   "dependencies": {
     "minimatch": "^3.0.0",
-    "vscode-languageserver": "^3.4.0",
     "semver": "^5.1.0",
+    "vscode-languageserver": "^3.4.0",
     "vscode-uri": "^1.0.1"
   },
   "devDependencies": {
